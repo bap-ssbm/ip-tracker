@@ -30,17 +30,18 @@ const Main = () => {
    
 
     const getLocationInfo = (ipInput) => {
-        var url = "https://geo.ipify.org/api/v2/country,city?apiKey=at_iNzrQ939C8jKh8tqOdzAXMD9dLQLe&ipAddress=" + ipInput;
+        var url = "https://ipapi.co/" + ipInput  + "/json/";
         setIP(ipInput);
-
+      
 
         axios.get(url).then(res => {
-            setLocation(res.data.location.city + ", " + res.data.location.region + " " + res.data.location.postalCode + " " + res.data.location.country);
-            setIsp(res.data.isp);
-            setTz(res.data.location.timezone);
+        
+            setLocation(res.data.city + ", " + res.data.region + " " + res.data.postal + " " + res.data.country_name);
+            setIsp(res.data.org);
+            setTz(res.data.utc_offset);
             setlatLon({
-                lat: res.data.location.lat,
-                lng: res.data.location.lng
+                lat: res.data.latitude,
+                lng: res.data.longitude
             });
             setError(false);
         }
@@ -53,6 +54,7 @@ const Main = () => {
     const getLocation = async () => {
         const res1 = await axios.get("https://api.ipify.org/?format=json");
         console.log(res1.data);
+        
         getLocationInfo(res1.data.ip);
         setSearchIP(viewportWidth>768?"":res1.data.ip);
         console.log(searchIP)
