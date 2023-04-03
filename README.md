@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Frontend Mentor - IP address tracker solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The challenge
 
-### `npm test`
+Users should be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements on the page
+- See their own IP address on the map on the initial page load
+- Search for any IP addresses or domains and see the key information and location
 
-### `npm run build`
+### Screenshot
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](https://prnt.sc/tU-CViAkQtrq)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
 
-### `npm run eject`
+Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Links
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: https://bap-ssbm.github.io/ip-tracker/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## My process
 
-## Learn More
+### Built with
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Mobile-first workflow
+- [React](https://reactjs.org/) 
+- tailwind CSS
+- framer-motion
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### What I learned
 
-### Code Splitting
+I learned alot from this project. I use Axios to get the api objects. and used async await for one of my first tiems ever with a react project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+learned how to use Lealflet, andthe maps it gives. I may use this for a project in the future who knows!
+gotten better at using tailwind CSS
 
-### Analyzing the Bundle Size
+learned about getting the users ip with react.
+with ttps://api.ipify.org/?format=json a cool website to get the users ip and transform it into json
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```html
+<<div className="flex space-x-10">
+                        <motion.div
+                            animate={{ y: -4 }}
+                            transition={{ repeat: Infinity, repeatType: "mirror", ease: 'easeInOut' }} className="h-4 z-50 rounded-full bg-black w-4"></motion.div>
+                        <motion.div animate={{ y: -4 }}
+                            transition={{ repeat: Infinity, repeatType: "mirror", ease: 'easeInOut', delay: 0.1 }} className="h-4 z-50 rounded-full bg-black w-4"></motion.div>
+                        <motion.div animate={{ y: -4 }}
+                            transition={{ repeat: Infinity, repeatType: "mirror", ease: 'easeInOut', delay: 0.2 }} className="h-4 z-50 rounded-full bg-black w-4"></motion.div>
+                    </div>
 
-### Making a Progressive Web App
+```
+i made a coool framer-motion loading animation here which i was proud of 
+```css
+#top-section{
+    background-image: url("pattern-bg-mobile.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+@media (min-width:768px) {
+    #top-section{
+        background-image: url("pattern-bg-desktop.png");
+    }
+}
+creatinga custom background with tailwindCSS
+```
+```js
 
-### Advanced Configuration
+    const getLocationInfo = (ipInput) => {
+        var url = "https://geo.ipify.org/api/v2/country,city?apiKey=at_iNzrQ939C8jKh8tqOdzAXMD9dLQLe&ipAddress=" + ipInput;
+        setIP(ipInput);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+        axios.get(url).then(res => {
+            setLocation(res.data.location.city + ", " + res.data.location.region + " " + res.data.location.postalCode + " " + res.data.location.country);
+            setIsp(res.data.isp);
+            setTz(res.data.location.timezone);
+            setlatLon({
+                lat: res.data.location.lat,
+                lng: res.data.location.lng
+            });
+            setError(false);
+        }
+        ).catch(error => {
+            setError(true);
+        }
+        );
+    }
+```
+this custom function i made to get take in the ip, and then get the data from geolocation api.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Make more projects with Axion, and API. and also use more async await fuinctions.
+as well as get better at tailwind. and add cooler loading animations with framer-motion.
+
