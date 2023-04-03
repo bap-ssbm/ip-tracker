@@ -73,7 +73,7 @@ const Main = () => {
     }
 
     return (
-        <main className="flex flex-col items-center text-[18px] text-gray-1100 h-screen">
+        <main className="flex flex-col items-center text-[18px] text-gray-1100 md:h-screen">
 
             <motion.div 
             id="top-section" className="flex flex-col relative space-y-7 items-center py-10 w-full pb-36" >
@@ -92,28 +92,28 @@ const Main = () => {
                 </div>
                 {showerror && (<p className="text-red-200">something went wrong, please try again</p>)}
                 <div className="flex text-center md:text-left md:flex-row flex-col bg-white absolute top-[60%] z-50 rounded-2xl py-5 w-[90%] md:w-3/4 shadow-lg">
-                    <div className="py-5 px-10 flex-1">
+                    <div className= "py-2 md:py-5 px-10 flex-1">
                         <p className="text-sm font-bold text-gray-1000 tracking-wider">IP ADDRESS</p>
                         <h2 className="font-medium">{ip}</h2>
                     </div>
 
                     <div className="hidden md:flex w-[1px] bg-gray-200 h-24 place-self-center "></div>
 
-                    <div className="py-5 px-10 flex-1">
+                    <div className="md:py-5 px-10 flex-1">
                         <p className="text-sm font-bold text-gray-1000 tracking-wider">LOCATION</p>
                         <h2 className="font-medium">{location}</h2>
                     </div>
 
                     <div className=" hidden md:flex w-[1px] bg-gray-200 h-24 place-self-center"></div>
 
-                    <div className="py-5 px-10 flex-1">
+                    <div className="py-2 md:py-5 px-10 flex-1">
                         <p className="text-sm font-bold text-gray-1000 tracking-wider">TIMEZONE</p>
                         <h2 className="font-medium">UTC {timeZone}</h2>
                     </div>
 
                     <div className="hidden md:flex w-[1px] bg-gray-200 h-24 place-self-center"></div>
 
-                    <div className="py-5 px-10 flex-1">
+                    <div className="pb-2 md:py-5 px-10 flex-1">
                         <p className="text-sm font-bold text-gray-1000 tracking-wider">ISP</p>
                         <h2 className="font-medium">{isp}</h2>
                     </div>
@@ -134,7 +134,7 @@ const Main = () => {
                  animate={{opacity:1, transition:{
                      ease:'easeInOut', duration:0.8
                  }}} 
-            id="map-container relative" className="flex-1 w-full ">
+            id="map-container relative" className="h-[700px] md:h-auto md:flex-1 w-full ">
                 {latLon === null && (<div className="absolute flex flex-col justify-center items-center left-1/2 ml-[-3.2rem] top-[50vh] space-y-5">
 
                     <div className="flex space-x-10">
