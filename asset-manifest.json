@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/simon-says/ip-tracker/static/css/main.52caf2e3.css",
-    "main.js": "/simon-says/ip-tracker/static/js/main.8f86388f.js",
-    "static/media/pattern-bg-desktop.png": "/simon-says/ip-tracker/static/media/pattern-bg-desktop.5013c4f570ecf757f855.png",
-    "static/media/pattern-bg-mobile.png": "/simon-says/ip-tracker/static/media/pattern-bg-mobile.3666aa38dccbc0ebd679.png",
-    "index.html": "/simon-says/ip-tracker/index.html",
-    "static/media/icon-location.svg": "/simon-says/ip-tracker/static/media/icon-location.7e6459d2a9278295ae782e100965be4b.svg",
-    "main.52caf2e3.css.map": "/simon-says/ip-tracker/static/css/main.52caf2e3.css.map",
-    "main.8f86388f.js.map": "/simon-says/ip-tracker/static/js/main.8f86388f.js.map"
+    "main.css": "/ip-tracker/static/css/main.5127024e.css",
+    "main.js": "/ip-tracker/static/js/main.a99ab0ac.js",
+    "static/media/pattern-bg-desktop.png": "/ip-tracker/static/media/pattern-bg-desktop.5013c4f570ecf757f855.png",
+    "static/media/pattern-bg-mobile.png": "/ip-tracker/static/media/pattern-bg-mobile.3666aa38dccbc0ebd679.png",
+    "index.html": "/ip-tracker/index.html",
+    "static/media/icon-location.svg": "/ip-tracker/static/media/icon-location.7e6459d2a9278295ae782e100965be4b.svg",
+    "main.5127024e.css.map": "/ip-tracker/static/css/main.5127024e.css.map",
+    "main.a99ab0ac.js.map": "/ip-tracker/static/js/main.a99ab0ac.js.map"
   },
   "entrypoints": [
-    "static/css/main.52caf2e3.css",
-    "static/js/main.8f86388f.js"
+    "static/css/main.5127024e.css",
+    "static/js/main.a99ab0ac.js"
   ]
 }
